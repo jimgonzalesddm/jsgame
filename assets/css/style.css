@@ -1,0 +1,72 @@
+#jumboland {
+	height: 100vh;
+	display: flex;
+	justify-content: space-around; 
+	align-items: center;
+}
+#instructionBox {
+	width: 500px;
+	height: 500px;
+}
+#gameCanvas {
+	width: 500px;
+	height: 500px;
+	background-image: url(../images/grid.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	border-color: black;
+	text-align: center;
+	position: relative;
+	display: flex;
+	justify-content: space-between; 
+	/*align-items: center;*/
+	padding: 30px 30px;
+	
+}
+
+
+#spider,
+#ant {
+	width: 120px;
+	height: 120px;
+	/*position: absolute;*/
+	display: flex;
+	justify-content: flex-start;
+}
+
+
+#ant {
+	display: flex;
+	justify-content: flex-end;
+}
+#spiderPart {
+	position: absolute;
+	display: flex;
+	justify-content: flex-start;
+	z-index: 3;
+}
+#spiderFood {
+	position: absolute;
+	display: flex;
+  	justify-content: flex-end;
+  	right: 30px;
+  	bottom: 30px;
+}
+
+
+.spiderPartDiv,
+.spiderFoodDiv {
+	width: 120px;
+	height: 120px;
+/*	background-color: green;*/
+	border-color: black;
+	border-radius: 2px;
+	
+}
+
+.previous,
+.next {
+	display: none;
+}
+
+

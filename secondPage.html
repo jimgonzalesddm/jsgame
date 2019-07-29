@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Game</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+	<!-- external css -->
+	<!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+</head>
+<body>
+
+
+	<div id="jumboland" class="jumbotron">
+		<div id="instructionBox">
+			<h1>Learn How to Code!</h1>
+			<p>Great! You learned how to call a function. Now, Byubo needs to collect its food. You can help it by moving it until it reached the ant then call the function collectFood(). You can type several functions before hitting the Run Code Button. Let's give it a try!</p>
+			<textarea class="textCodeArea" rows="10" cols="50"></textarea><br>
+			<button class="btn btn-success runBtn">Run Code</button>
+			<a href="#" class="previous">&laquo; Previous</a>
+			<a href="#" class="next">Next &raquo;</a>
+		</div>		
+	</div>
+
+	<!-- <canvas id="gameCanvas"width="300"height="300"></canvas> -->
+
+	<script type="text/javascript">
+		/** CONSTANTS **/
+// constCANVAS_BORDER_COLOUR='black';
+// constCANVAS_BACKGROUND_COLOUR="white";
+// Get the canvas element
+
+
+// let gameCanvas =document.getElementById("gameCanvas");
+// let ctx = gameCanvas.getContext("2d");
+
+// ctx.fillStyle=CANVAS_BACKGROUND_COLOUR;
+// //  Select the colour for the border of the canvas
+// ctx.strokestyle=CANVAS_BORDER_COLOUR;
+// // Draw a "filled" rectangle to cover the entire canvas
+// ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+// // Draw a "border" around the entire canvas
+// ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
+
+// function drawSnakePart(snakePart) {
+//   ctx.fillStyle = 'lightgreen';
+//   ctx.strokestyle = 'darkgreen';  ctx.fillRect(snakePart.x, snakePart.y, 10, 10);
+//   ctx.strokeRect(snakePart.x, snakePart.y, 10, 10);
+
+// }
+
+// function drawSnake() {
+//   snake.forEach(drawSnakePart);
+// }
+// drawSnake();
+jumboland.innerHTML += ` 
+	<div id="instructionBox">
+		<h1></h1>
+		<h2></h2>
+		<textarea id="textCodeArea" rows="10" cols="50">
+		Enter code here</textarea><br>
+		<button id="runBtn" class="btn btn-success">Run Code</button>
+	</div>
+
+	<div id="gameCanvas">
+		<div id="snakePart"></div>
+		<div id="snakeFood"></div>
+	</div>
+`;
+
+let snake = ["part1", "part2", "part3", "part4"];
+// let snake = [
+//         {x:150, y:150},
+//         {x:140, y:150},
+//         {x:130, y:150},
+//         {x:120, y:150},
+//         {x:110, y:150}
+//       ]
+function drawSnakePart(part) {	
+	snakePart.innerHTML += `
+		<div class="snakePartDiv"></div>
+	`;	
+}
+
+function drawSnake() {
+	snake.forEach(drawSnakePart);
+}
+
+drawSnake();
+snakeFood.innerHTML += `
+	<div class="snakeFoodDiv"></div>
+	`;
+
+// Horizontal velocity
+// let dx = 10;
+// Vertical velocity
+// let dy = 0;
+
+function moveForward() {
+	if(snakePart.style.left) {
+		// if(snakePart.style.right = '50px') {
+		// 	alert();
+		// }		
+		console.log(snakePart.style.left)	
+		snakePart.style.left = parseInt(snakePart.style.left) + 20 +'px';
+	} else {
+		snakePart.style.left = '10px';
+	}	
+}
+
+textCodeArea.addEventListener("focus", function() {
+	textCodeArea.innerHTML = "";
+});	
+
+runBtn.addEventListener("click", function() {
+	let newInput;
+	newInput = textCodeArea.value;
+	let array = newInput.trim().split(";")
+	array.forEach( function(statement) {
+		console.log(statement);
+		if(statement.trim() == "moveForward()") {
+			moveForward();
+		} 
+	});
+
+
+
+});
+
+
+if(statement.trim() != "moveLeft(") || (statement.trim() == "moveUp(") || 
+			(statement.trim() == "moveDown(") || (statement.trim() == "moveRight(") ||
+			(statement.trim() == "collectAnt(") {
+				runBtn.disabled = false;
+				nextBtn.style.display = 'none'
+			}
+
+// drawSnakePart();
+	// advanceSnake();
+	// Change vertical velocity to 0
+      // dx =0;
+// Change horizontal velocity to 10
+      // dy =-10;
+// Move one step up
+
+
+// function drawSnake() {
+// 	snake.forEach(drawSnakePart);
+// }
+
+// function drawSnakePart(snakePart) {
+// 	snake.forEach( function(part) {
+// 		snakePart.innerHTML += `
+// 			<div class="snakePartDiv"></div>
+// 		`;
+// 	});
+	
+// }
+// function advanceSnake() {
+// 	let head = {x: snake[0].x+ dx, y: snake[0].y+ dy};
+// 	snake.unshift(head);
+// 	snake.pop();
+// }
+
+
+
+if(statement.trim() != "moveLeft(") || (statement.trim() == "moveUp(") || 
+		// 	(statement.trim() == "moveDown(") || (statement.trim() == "moveRight(") ||
+		// 	(statement.trim() == "collectAnt(") {
+		// 		runBtn.disabled = false;
+		// 		nextBtn.style.display = 'none'
+		// 	}
+	</script>
+
+
+
+	<!-- <script src="assets/js/script.js"></script> -->
+</body>
+</html>
